@@ -43,7 +43,37 @@ Listing, Adding, deliting Firewall Rules.
 	$firewall-cmd --get-active-zones
 	$firewall-cmd --zone=public --list-all
 
-8.How to add/remove services
+8.How to add/remove services Pemanent/Temp
 	$firewall-cmd --add-service=<service_name>
 	$firewall-cmd --remove-service=<service_name>
-		
+	$firewall-cmd --add-service=<service_name> --permanent
+	$firewall-cmd --remove-service=<service_name> --permanent
+	=> Note : After adding permanent rule restart firewalld.services
+	$system-ctl restart firewalld.services
+
+9.Practical example with appache httpd services.
+	=> first check, install & start appache(httpd) services
+	$rpm -qa | grep httpd
+	$yum install httpd -y
+	$systemctl start httpd
+
+	=> Check webpage is available or not. 
+	=> If it is not available that menas firewall not allow http services.
+	$fi:Wrewall-cmd --list-all		//to check allowed services
+	$firewall-cmd --add-services=http	//to add https services in firewall rule.
+	$firewall-cmd --reload			//to reload 		
+
+10.How to add/remove port Permanent/Temp
+	$firewall-cmd --add-port=20201/tcp
+	$firewall-cmd --remove-port=20201/tcp 
+	$firewall-cmd --add-port=20201/tcp --permanent
+	$firewall-cmd --remove-port=20201/tcp --permanent
+	=> Note : After adding permanent rule restart firewalld.services
+        $system-ctl restart firewalld.services
+
+11.How to block incoming traffic from an IP
+	$sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="X.X.X.X" reject'
+	$sudo firewall-cmd --permanent --remove-rich-rule='rule family="ipv4" source address="X.X.X.X" reject'
+
+12.How to block ICMP incoming Traffic
+	$firewall-cmd --add-icmp-block-inversion --permanent
