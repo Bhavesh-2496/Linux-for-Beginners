@@ -30,4 +30,20 @@ Listing, Adding, deliting Firewall Rules.
 	$systemctl restart firewalld
 
 4.How to check rukes of firewalld
-	$firewall-cmd --list-all		
+	$firewall-cmd --list-all
+
+5.Listing of all the services firewalld is aware of
+	$firewall-cmd --get-services
+
+6.How to reload the config of firewall
+	$firewall-cmd --reload
+
+7.How to get list of Zones
+	$firewall-cmd --get-zones
+	$firewall-cmd --get-active-zones
+	$firewall-cmd --zone=public --list-all
+
+8.How to add/remove services
+	$firewall-cmd --add-service=<service_name>
+	$firewall-cmd --remove-service=<service_name>
+		
