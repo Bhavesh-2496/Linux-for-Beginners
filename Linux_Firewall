@@ -1,0 +1,33 @@
+What is a Firewall?
+
+	A firewall is a network security system that monitor and controls
+	incoming & outgoiong network traffic baced on the rules define.
+
+	Basically used to determine and block untrusted network to access 
+	out system.
+
+Types of Firewall?
+	1.Software Based - Running on OS
+	2.Hardware Based - Dedicated appliance with Firewall software.(Used by network Team)
+
+Tools on Linux For Managing Firewall.
+	1.iptable
+	2.firewalld - newer version of centos, Redhat, fedore etc.
+
+Listing, Adding, deliting Firewall Rules.
+
+1.How to check if firewalld service is installed?
+	$rpm -qa | grep firewalld
+
+2.How to install firewalld?
+	$yum install firewalld -y
+
+3.How Stop/Start firewalld services?
+	$systemctl start firewalld
+	$systemctl stop firewalld
+	$systemctl enable firewalld
+	$systemctl disable firewalld
+	$systemctl restart firewalld
+
+4.How to check rukes of firewalld
+	$firewall-cmd --list-all		
