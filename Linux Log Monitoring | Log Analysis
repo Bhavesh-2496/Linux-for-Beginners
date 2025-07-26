@@ -1,0 +1,27 @@
+What is Log files - A log file stores events, process, messages and other data from application, Operating system or device. They provide information based on action performed by user.
+Log directory in Linux - /var/log
+
+Important log files in linux - boot, chron, secure, maillog, httpd, messages.
+boot - consist logs of system booting process.
+chron - consist log releted to chron job.
+secure - consist log releted login ectivity by users.
+maillog - consist mailing related log.
+httpd - webserver related logs.
+massages - consist logs of activity in server.
+
+Commnds to read log files
+less <filename>  
+Using less command you can search perticuler word using "/".
+you can go end of the page by "Shift+g", go to top by pressing "p"
+you can search word from bottom to top by "?" and go to next by pressing "n"
+
+grep -i "word want to search" <filename>
+you can seach word in file withoute opening it.
+
+you can search multiple word by
+egrep -i "1st_keyword | 2nd_keyword" <filename>
+
+
+
+
+
